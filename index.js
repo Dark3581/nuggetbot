@@ -167,6 +167,8 @@ client.on("message", async(message) => {
             return message.channel.send("There is no music currently playing!");
         if(message.member.voice.channel != message.guild.me.voice.channel)
             return message.channel.send("You are not in the voice channel!")
+        if(args.length <=0)
+            return message.channel.send('Please define the loop <one/l00p/off>')
 
         switch(args[0].toLowerCase()){
            case 'l00p':
