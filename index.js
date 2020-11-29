@@ -57,9 +57,6 @@ client.on("message", async(message) => {
         case 'fuckoff':
             stop(message, serverQueue);
             break;
-            if (command.guildOnly && message.channel.type === 'dm') { return message.reply('I can\'t execute that command inside DMs!'); }
-        
-
         
         }
 
@@ -156,6 +153,7 @@ client.on("message", async(message) => {
             return message.channel.send("The song is already paused");
         serverQueue.connection.dispatcher.pause();
         message.channel.send("The song has been paused!");
+        if (command.guildOnly && message.channel.type === 'dm') { return message.reply('I can\'t execute that command inside DMs!'); }
     }
     function resume(serverQueue){
         if(!serverQueue)
