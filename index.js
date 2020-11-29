@@ -4,6 +4,7 @@ const { executionAsyncResource } = require('async_hooks');
 const Discord = require('discord.js');
 const ytdl = require('ytdl-core');
 
+if (command.guildOnly && message.channel.type === 'dm') { return message.reply('I can\'t execute that command inside DMs!'); }
 
 const { YTSearcher } = require('ytsearcher');
 
@@ -56,6 +57,9 @@ client.on("message", async(message) => {
         case 'fuckoff':
             stop(message, serverQueue);
             break;
+
+            
+
         
         }
 
