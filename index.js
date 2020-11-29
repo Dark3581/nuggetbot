@@ -112,8 +112,7 @@ client.on("message", async(message) => {
         if(!song){
             serverQueue.vChannel.leave();
             queue.delete(guild.id);
-        if(message.channel.type === 'dm')
-             return console.log('Somone is trying to crash the bot')
+        
             return;
         }
         const dispatcher = serverQueue.connection
@@ -137,8 +136,7 @@ client.on("message", async(message) => {
             return message.channel.search('There is no music playing!')
         if(message.member.voice.channel != message.guild.me.voice.channel)
             return message.channel.send("You need to join the voice chat first!")
-        if(message.channel.type === 'dm')
-            return console.log('Somone is trying to crash the bot')
+        
         serverQueue.songs = [];
         serverQueue.connection.dispatcher.end();
     }
@@ -147,8 +145,7 @@ client.on("message", async(message) => {
             return message.channel.send("You need to join the voice chat first");
         if(!serverQueue)
             return message.channel.send("There is nothing to skip!");
-        if(message.channel.type === 'dm')
-             return console.log('Somone is trying to crash the bot')
+        
         serverQueue.connection.dispatcher.end();
     }
     function pause(serverQueue){
@@ -158,8 +155,7 @@ client.on("message", async(message) => {
             return message.channel.send("You are not in the voice channel!")
         if(serverQueue.connection.dispatcher.paused)
             return message.channel.send("The song is already paused");
-        if(message.channel.type === 'dm')
-            return console.log('Somone is trying to crash the bot')
+        
         serverQueue.connection.dispatcher.pause();
         message.channel.send("The song has been paused!");
     }
@@ -170,8 +166,7 @@ client.on("message", async(message) => {
             return message.channel.send("You are not in the voice channel!")
         if(serverQueue.connection.dispatcher.resumed)
             return message.channel.send("The song is already playing!");
-        if(message.channel.type === 'dm')
-            return console.log('Somone is trying to crash the bot')
+     
         serverQueue.connection.dispatcher.resume();
         message.channel.send("The song has been resumed!");
     }
@@ -182,8 +177,7 @@ client.on("message", async(message) => {
             return message.channel.send("You are not in the voice channel!")
         if(args.length <=0)
             return message.channel.send('Please define the loop <one/l00p/off>')
-        if(message.channel.type === 'dm')
-            return console.log('Somone is trying to crash the bot')
+        
 
         switch(args[0].toLowerCase()){
            case 'l00p':
@@ -220,8 +214,7 @@ client.on("message", async(message) => {
             return message.channel.send("There is no music currently playing!");
         if(message.member.voice.channel != message.guild.me.voice.channel)
             return message.channel.send("You are not in the voice channel!")
-            if(message.channel.type === 'dm')
-             return console.log('Somone is trying to crash the bot')
+            
 
         let nowPlaying = serverQueue.songs[0];
         let qMsg =  `Now playing: ${nowPlaying.title}\n--------------------------\n`
