@@ -34,6 +34,7 @@ client.on("message", async(message) => {
 
     switch(command){
         case 'play':
+            break;
             execute(message, serverQueue);
             break;
         case 'stop':
@@ -85,6 +86,7 @@ client.on("message", async(message) => {
                     playing: true,
                     loopone: false,
                     loopall: false
+                    
                 };
                 queue.set(message.guild.id, queueConstructor);
 
