@@ -3,11 +3,6 @@
 const { executionAsyncResource } = require('async_hooks');
 const Discord = require('discord.js');
 const ytdl = require('ytdl-core');
-const privateMessage = require('./private-message');
-
-privateMessage(client, args.length <=0, 'no')
-privateMessage(client, args.length <=1, 'no')
-privateMessage(client, args.length <=2, 'no')
 
 
 const { YTSearcher } = require('ytsearcher');
